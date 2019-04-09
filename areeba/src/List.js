@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { StyleSheet, ScrollView, Text, TextInput, View, TouchableOpacity, CheckBox } from 'react-native';
-import { CheckBox } from 'react-native-elements';
 
 const List = () => {
     state = {
