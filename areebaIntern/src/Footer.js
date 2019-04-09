@@ -15,7 +15,6 @@ export default Footer;
 
 const styles = StyleSheet.create({
     container:{
-        // flex:1,
         borderTopWidth: 1,
         borderTopColor: '#D3D3D3',
         height:30,
@@ -25,6 +24,7 @@ const styles = StyleSheet.create({
     },
     removeButton:{
         position: 'absolute',
-        bottom:0
+        bottom:0,
+        color:'red'
     }
 });
