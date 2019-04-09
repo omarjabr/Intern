@@ -17,8 +17,9 @@ const List = () => {
 export default List;
 const styles = StyleSheet.create({
     container:{
-      flex:1,
       flexDirection: 'column',
+      height:428,
+      borderWidth: 1,
     },
     textInput:{
       height:50,
