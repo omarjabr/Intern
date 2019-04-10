@@ -5,34 +5,38 @@ import Footer from './src/Footer';
 
 export default class App extends Component{
   state={
-    Name:[
+    checked: [],
+    data :[
       {
         id:1,
-        title:'Check email',
-        check: false,
+        title:'Check email'
       },
       {
        id:2,
-       check: false,
        title:'Take shower'
      },
      {
        id:3,
-       check: false,
        title:'Brush teeth'
      },
      {
        id:4,
-       check: false,
        title:'Eat breakfast'
      }
     ]
   }
-  checkTest(item)  {
-    alert(item.check)
-   this.setState({ check: !item.check })
+  componentWillMount() {
+    let { data, checked } = this.state;
+    let intialCheck = data.map(x => true);
+    this.setState({ checked: intialCheck })
+  }
+  handleChange = (index) => {
+    let { checked } = this.state;
+    checked[index] = !checked[index];
+    this.setState({ checked });
   }
   render(){
+    let { data, checked } = this.state;
     return(
       <View style={styles.container}>
         <Title/>
@@ -43,12 +47,14 @@ export default class App extends Component{
         placeholder="Enter an item!"
         />
           <FlatList
-           data={this.state.Name}
-           renderItem={({ item }) => (
+           data={data}
+           renderItem={({ item, index }) => (
              <View style={styles.flist}>
              <Text style={styles.checkBoxText}>{item.title}</Text>
              <CheckBox 
-             value={item.check} onChange={ () => this.checkTest(item) }/>
+             onPress={() => this.handleChange(index)}
+             check={checked[index]}
+             />
              </View>
            )}
           />
